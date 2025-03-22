@@ -23,9 +23,21 @@ public class SavingsController {
         this.service = service;
     }
 
+    // home page welcome screen: http://localhost:8080/api/savings/
+    @GetMapping("/")
+    public String welcome() {
+        return "Welcome to Spring Bank";
+    }
+
+    // test page
+    @GetMapping("/test")
+    public String test() {
+        return "Controller is working";
+    }
+
     // GET /api/savings
     // Returns a list of all savings accounts
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Savings>> getAllAccounts() {
         return ResponseEntity.ok(service.getAllAccounts());
     }
@@ -52,7 +64,7 @@ public class SavingsController {
     }
 
     // POST /api/savings
-    // Creates a new savings account with the data sent in the request body (JSON)
+    // Creates a new savings account with the data sent in the request body (JSON to photo class)
     // Returns 201 Created status with the new account
     @PostMapping
     public ResponseEntity<Savings> createAccount(@RequestBody Savings savings) {

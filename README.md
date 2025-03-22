@@ -43,7 +43,8 @@ spring-bank/
 
 ## API Endpoints
 
-- `GET /api/savings` - Get all accounts
+- `GET /api/savings/` - welcome page
+- `GET /api/savings/all` - get all accounts
 - `GET /api/savings/{id}` - Get account by ID
 - `GET /api/savings/email/{email}` - Get account by email
 - `POST /api/savings` - Create a new account
