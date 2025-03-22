@@ -85,6 +85,41 @@ curl -X PUT http://localhost:8080/api/savings/1 \
 curl -X DELETE http://localhost:8080/api/savings/1
 ```
 
+### Check results in database
+```md
+rogerqiu@Rogers-Air ~/documents/code/spring-bank % mysql -u root -p
+
+Enter password:
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| spring_bank        |
+| sys                |
++--------------------+
+
+mysql> use spring_bank;
+Database changed
+
+mysql> show tables;
++-----------------------+
+| Tables_in_spring_bank |
++-----------------------+
+| savings               |
++-----------------------+
+
+mysql> select * from savings;
++----+----------------------+------------+-----------+----------------+
+| id | email                | first_name | last_name | savings_amount |
++----+----------------------+------------+-----------+----------------+
+|  1 | john.doe@example.com | John       | Doe       |        1000.00 |
++----+----------------------+------------+-----------+----------------+
+```
+
 ## How Data Flows Through the Application
 
 ```md
